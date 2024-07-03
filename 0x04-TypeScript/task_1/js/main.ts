@@ -1,5 +1,5 @@
 //task 1
-interface Teacher {
+export interface Teacher {
   readonly firstName: string;
   fullTimeEmployee: boolean;
   readonly lastName: string;
@@ -8,28 +8,28 @@ interface Teacher {
 };
 
 //task 2
-interface Directors extends Teacher {
+export interface Directors extends Teacher {
   numberOfReports: number;
 }
 
 //task 3
-interface printTeacherFunction {
+export interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
 
-const printTeacher: printTeacherFunction = (firstName: string, lastName: string) => `${firstName[0]}. ${lastName}`;
+export const printTeacher: printTeacherFunction = (firstName: string, lastName: string) => `${firstName[0]}. ${lastName}`;
 
 //task 4
-interface Student {
+export interface Student {
   firstName: string;
   lastName: string;
 }
 
-interface StudentConstructor {
+export interface StudentConstructor {
   (firstName: string, lastName: string): Student;
 }
 
-class StudentClass implements Student{
+export class StudentClass implements Student{
   firstName: string;
   lastName: string;
  
