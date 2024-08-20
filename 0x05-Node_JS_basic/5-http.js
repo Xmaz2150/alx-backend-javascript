@@ -5,24 +5,22 @@ const host = 'localhost';
 const port = 1245;
 const file = process.argv[2];
 
-console.log(file);
-
 const requestListener = (req, res) => {
   switch (req.url) {
     case '/':
       res.writeHead(200);
       res.end('Hello Holberton School!');
-      break
+      break;
     case '/students':
       countStudents(file)
-      .then((data) => {
-        res.writeHead(200);
-        res.end(data);
-      })
-      .catch((error) => {
-        res.end(error);
-      });
-      break
+        .then((data) => {
+          res.writeHead(200);
+          res.end(['This is the list of our students', data].join('\n'));
+        })
+        .catch((error) => {
+          res.end(error);
+        });
+      break;
     default:
       res.writeHead(404);
       res.end('Not found');
