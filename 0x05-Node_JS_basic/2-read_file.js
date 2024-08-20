@@ -11,7 +11,6 @@ const cleanData = (data) => {
   return data;
 };
 
-
 const logStudentsByField = (field, cData) => {
   const students = cleanData(cData.map((str) => {
     if (str.split(',')[3] === field) {
@@ -37,16 +36,15 @@ const countStudents = (path) => {
     const cData = cleanData(data.split(/\r?\n/).slice(1));
 
     const fields = [...new Set(cData.map((str) => str.split(',')[3]))];
-   
+
     const info = [`Number of students: ${cData.length}`];
-    for (field of fields) {
+    for (const field of fields) {
       info.push(logStudentsByField(field, cData));
     }
     const studentStats = info.join('\n');
-    console.log(studentStats);
+    log.write(`${studentStats}\n`);
     return studentStats;
   } catch (err) {
-    console.log(err);
     throw new Error('Cannot load the database');
   }
 };

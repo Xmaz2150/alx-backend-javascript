@@ -29,18 +29,18 @@ const logStudentsByField = (field, cData) => {
   return infoStr.join(' ');
 };
 
-const countStudents = async (path) => {
+const countStudents = (path) => {
   return readFile(path, { encoding: 'utf-8' })
     .then((data) => {
       const cData = cleanData(data.split(/\r?\n/).slice(1));
 
       const fields = [...new Set(cData.map((str) => str.split(',')[3]))];
       const info = [`Number of students: ${cData.length}`];
-      for (field of fields) {
+      for (const field of fields) {
         info.push(logStudentsByField(field, cData));
       }
       const studentStats = info.join('\n');
-      console.log(studentStats);
+      log.write(`${studentStats}\n`);
       return studentStats;
     })
     .catch(() => {
