@@ -9,14 +9,14 @@ app.get('/', (req, res) => {
   res.send('Hello Holberton School!');
 });
 
-app.get('/students', (req, res) => {
+app.get('/students', (req, res, next) => {
   countStudents(file)
     .then((data) => {
       const resIntro = 'This is the list of our students';
       res.send([resIntro, data].join('\n'));
     })
     .catch((error) => {
-      console.log(error);
+      next(error);
     });
 });
 app.listen(port, () => {
