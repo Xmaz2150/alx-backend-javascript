@@ -8,7 +8,9 @@ const requestListener = (req, res) => {
   res.end('Hello Holberton School!');
 };
 
-const server = http.createServer(requestListener);
-server.listen(port, host, () => {
+const app = http.createServer(requestListener);
+app.listen(port, host, () => {
   console.log('Server is up and running');
 });
+
+module.exports = app;
