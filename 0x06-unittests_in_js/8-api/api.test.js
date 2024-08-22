@@ -13,4 +13,17 @@ describe('Index Page', function() {
       expect(body).to.equal('Welcome to the payment system');
     });
   });
+
+  it('returns the right content type', function() {
+    request.get('http://localhost:7865/', function(error, response, body) {
+      expect(response.headers['content-type']).to.equal('text/html; charset=utf-8');
+    });
+  });
+
+  //404
+  it('returns status code 404', function() {
+    request.get('http://localhost:7865/any', function(error, response, body) {
+    expect(response.statusCode).to.equal(404);
+    });
+  });
 });
