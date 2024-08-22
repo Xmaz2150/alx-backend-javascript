@@ -12,14 +12,14 @@ describe('sendPaymentRequestToApi', function() {
     consoleSpy = sinon.spy(console, 'log');
   });
 
-  afterEach(() => {
-    calculateNumberStub.restore();
-    consoleSpy.restore();
-  });
-
   it('stubs Utils.calculateNumber to always return 10', function() {
     sendPaymentRequestToApi(100, 20);
     expect(calculateNumberStub.calledWith('SUM', 100, 20)).to.be.true;
     expect(consoleSpy.calledWith('The total is: 10')).to.be.true;
+  });
+
+  afterEach(() => {
+    calculateNumberStub.restore();
+    consoleSpy.restore();
   });
 });
