@@ -31,3 +31,5 @@ const server = http.createServer(requestListener);
 server.listen(port, host, () => {
   console.log('Server is up and running');
 });
+
+module.exports = server;
