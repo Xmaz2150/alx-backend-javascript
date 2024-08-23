@@ -4,13 +4,4 @@ const getPaymentTokenFromAPI = (success) => {
   }
 };
 
-async function main() {
-  getPaymentTokenFromAPI(true)
-  .then((res) => {
-    console.log(res);
-  });
-}
-
-main();
-
 module.exports = getPaymentTokenFromAPI;
