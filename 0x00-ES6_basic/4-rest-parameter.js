@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+
 export default function returnHowManyArguments(...args) {
   let sum = 0;
   for (const arg of args) {
