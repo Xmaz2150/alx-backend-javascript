@@ -33,5 +33,6 @@ export default async function asyncUploader() {
       }
 
       return newResult;
-    });
+    })
+    .catch((error) => error);
 }
