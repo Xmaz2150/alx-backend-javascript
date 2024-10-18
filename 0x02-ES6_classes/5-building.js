@@ -1,4 +1,4 @@
-/* eslint no-underscore-dangle: ["error", { "allow": ["_sqft"] }] */
+/* eslint no-underscore-dangle: ["error", { "allow": ["_amount"] }] */
 class Building {
   constructor(sqft) {
     if (this.evacuationWarningMessage === undefined && this.constructor !== Building) {

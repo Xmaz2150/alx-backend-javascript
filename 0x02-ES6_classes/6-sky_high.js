@@ -1,11 +1,11 @@
+/* eslint no-underscore-dangle: ['error', { 'allow': ['_floors'] }] */
 import Building from './5-building';
 
 class SkyHighBuilding extends Building {
-
   constructor(sqft, floors) {
     super(sqft);
-    if (typeof floors !== "number") {
-      throw TypeError("floors must be of type number");
+    if (typeof floors !== 'number') {
+      throw TypeError('floors must be of type number');
     }
     this._floors = floors;
   }
@@ -15,7 +15,7 @@ class SkyHighBuilding extends Building {
   }
 
   evacuationWarningMessage() {
-    return "Evacuate slowly the " + this.floors + " floors";
+    return `Evacuate slowly the ${this.floors} floors`;
   }
 }
 
