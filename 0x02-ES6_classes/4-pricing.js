@@ -1,7 +1,7 @@
+/* eslint no-underscore-dangle: ["error", { "allow": ["_amount", "_currency"] }] */
 import Currency from './3-currency';
 
 class Pricing {
-
   constructor(amount, currency) {
     this._amount = amount;
     if (currency instanceof Currency) {
@@ -12,6 +12,7 @@ class Pricing {
   get amount() {
     return this._amount;
   }
+
   set amount(amount) {
     this._amount = amount;
   }
@@ -19,6 +20,7 @@ class Pricing {
   get currency() {
     return this._currency;
   }
+
   set currency(currency) {
     if (!(currency instanceof Currency)) {
       throw TypeError(`${currency} must be of type Currency`);
